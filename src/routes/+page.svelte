@@ -1,4 +1,7 @@
 <script>
+  import Die from '$lib/components/Die.svelte';
+  import Button from '$lib/components/Button.svelte';
+
   let dice = $state(
     Array(10)
       .fill()
@@ -10,6 +13,18 @@
       value: Math.ceil(Math.random() * 6),
       isHeld: false
     };
+  }
+
+  function handleReset() {
+    console.log('Reset clicked');
+  }
+
+  function handleRoll() {
+    console.log('Roll clicked');
+  }
+
+  function handleDieClick(die) {
+    console.log('Die clicked:', $state.snapshot(die));
   }
 </script>
 
@@ -26,20 +41,11 @@
   </div>
   <div class="grid grid-cols-5 grid-rows-2 place-content-center gap-4">
     {#each dice as die}
-      <div
-        class="flex w-full cursor-pointer items-center justify-center rounded-lg border-2 border-purple-200 px-4 py-6 text-2xl text-black bg-white">
-        {die.value}
-      </div>
+      <Die value={die.value} isHeld={die.isHeld} onclick={() => handleDieClick(die)} />
     {/each}
   </div>
   <div class="flex flex-row items-center justify-center gap-6">
-    <button
-      aria-label="reset game"
-      class="w-[7em] rounded-lg bg-red-500 px-4 py-3 text-2xl font-semibold uppercase tracking-wide text-white"
-      >Reset</button>
-    <button
-      aria-label="roll dice"
-      class="w-[7em] rounded-lg bg-[#8A2BE2] px-4 py-3 text-2xl font-semibold uppercase tracking-wide text-white"
-      >Roll</button>
+    <Button text="Reset" color="red" onClick={handleReset} ariaLabeltext="reset game" />
+    <Button text="Roll" onClick={handleRoll} ariaLabeltext="roll dice" />
   </div>
 </section>
