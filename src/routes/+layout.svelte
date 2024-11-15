@@ -3,6 +3,6 @@
   let { children } = $props();
 </script>
 
-<main class="min-h-screen grid place-content-center bg-[#8A2BE2]">
+<main class="grid min-h-screen place-content-center bg-[#8A2BE2]">
   {@render children()}
 </main>

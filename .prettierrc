@@ -11,5 +11,7 @@
         "parser": "svelte"
       }
     }
-  ]
+  ],
+  "svelteBracketNewLine": false,
+  "svelteIndentScriptAndStyle": true
 }
