@@ -27,7 +27,7 @@
   <div class="grid grid-cols-5 grid-rows-2 place-content-center gap-4">
     {#each dice as die}
       <div
-        class="flex w-full cursor-pointer items-center justify-center rounded-lg border-t-2 px-4 py-6 text-2xl text-black shadow-md">
+        class="flex w-full cursor-pointer items-center justify-center rounded-lg border-2 border-purple-200 px-4 py-6 text-2xl text-black bg-white">
         {die.value}
       </div>
     {/each}
