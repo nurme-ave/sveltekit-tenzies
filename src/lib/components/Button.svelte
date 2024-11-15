@@ -5,6 +5,7 @@
 <button
   aria-label={ariaLabeltext}
   onclick={onClick}
-  class="w-[7em] rounded-lg px-4 py-3 text-2xl font-semibold uppercase tracking-wide text-white {color === 'red'
+  class="w-[6em] rounded-lg px-4 py-3 text-xl font-semibold uppercase tracking-wide text-white sm:w-[7em] sm:text-2xl {color ===
+  'red'
     ? 'bg-red-500'
     : 'bg-[#8A2BE2]'}">{text}</button>

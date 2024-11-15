@@ -29,17 +29,18 @@
 </script>
 
 <section
-  class="flex max-w-[768px] flex-col gap-8 rounded-lg border border-gray-300 bg-[#F5F5F5] px-16 py-12 text-center">
+  class="mx-0 flex w-screen flex-col gap-8 border-y border-gray-300 bg-[#F5F5F5] px-4 py-8 text-center
+  sm:mx-auto sm:w-full sm:max-w-[768px] sm:rounded-lg sm:border sm:px-16 sm:py-12">
   <div class="space-y-0.5">
-    <h1 class="mb-4 text-5xl font-bold uppercase tracking-wide text-[#8A2BE2]">Tenzies</h1>
-    <p class="text-lg">Roll until all dice are the same.</p>
-    <p class="text-lg">Click each die to freeze it at its current value between rolls.</p>
+    <h1 class="mb-4 text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:text-4xl md:text-5xl">Tenzies</h1>
+    <p class="text-base sm:text-lg">Roll until all dice are the same.</p>
+    <p class="text-base sm:text-lg">Click each die to freeze it at its current value between rolls.</p>
   </div>
   <div class="text-xl font-semibold text-[#087533]">
     <p>Rolls: 0</p>
     <p>Best score: 0</p>
   </div>
-  <div class="grid grid-cols-5 grid-rows-2 place-content-center gap-4">
+  <div class="mx-auto grid grid-cols-5 grid-rows-2 place-content-center gap-3 lg:gap-4">
     {#each dice as die}
       <Die value={die.value} isHeld={die.isHeld} onclick={() => handleDieClick(die)} />
     {/each}
