@@ -18,11 +18,12 @@
     try {
       const savedScore = localStorage.getItem('bestScore');
       console.log('Initial load - Saved score in localStorage:', savedScore);
-      if (savedScore !== null) {
+      if (savedScore !== null && savedScore !== '0') {
+        // Only update if there's a valid score
         bestScore = parseInt(savedScore);
         console.log('Set bestScore to:', bestScore);
       } else {
-        console.log('No saved score found, keeping default:', bestScore);
+        console.log('No saved score found or score is 0, keeping default:', bestScore);
       }
     } catch (error) {
       console.error('Error accessing localStorage:', error);
@@ -87,7 +88,8 @@
   $effect(() => {
     if (gameWon) {
       console.log('Game won! Current rolls:', rolls, 'Best score:', bestScore);
-      if (rolls < bestScore) {
+      // If bestScore is Infinity or rolls is less than current best
+      if (bestScore === Infinity || rolls < bestScore) {
         console.log('New best score!');
         bestScore = rolls;
         saveBestScore(rolls);
