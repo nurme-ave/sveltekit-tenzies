@@ -24,7 +24,7 @@
   }
 
   function handleDieClick(die) {
-    console.log('Die clicked:', $state.snapshot(die));
+    die.isHeld = !die.isHeld;
   }
 </script>
 
@@ -37,7 +37,7 @@
     <p class="text-base sm:text-lg">Roll until all dice are the same.</p>
     <p class="text-base sm:text-lg">Click each die to freeze it at its current value between rolls.</p>
   </div>
-  <div class="text-xl font-semibold text-[#087533]">
+  <div class="text-xl font-semibold text-[#000]">
     <p>Rolls: 0</p>
     <p>Best score: 0</p>
   </div>
