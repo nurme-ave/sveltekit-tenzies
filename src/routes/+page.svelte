@@ -16,7 +16,9 @@
   // Initialize best score and entrance animation
   onMount(() => {
     try {
-      bestScore = parseInt(localStorage.getItem('bestScore')) || 0;
+      const savedScore = localStorage.getItem('bestScore');
+      console.log('Loaded score:', savedScore);
+      bestScore = parseInt(savedScore) || 0;
     } catch (error) {
       console.error('Error accessing localStorage:', error);
     }
@@ -70,10 +72,13 @@
   });
 
   $effect(() => {
-    if (gameWon && rolls < bestScore) {
-      bestScore = rolls;
+    if (gameWon) {
+      if (rolls < bestScore) {
+        bestScore = rolls;
+      }
       try {
-        localStorage.setItem('bestScore', rolls.toString());
+        localStorage.setItem('bestScore', bestScore.toString());
+        console.log('Saved score:', bestScore);
       } catch (error) {
         console.error('Error saving to localStorage:', error);
       }
