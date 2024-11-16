@@ -20,7 +20,12 @@
   }
 
   function handleReset() {
-    console.log('Reset clicked');
+    dice = Array(10)
+      .fill()
+      .map(() => generateNewDie());
+    rolls = 0;
+    allDiceHeld = false;
+    gameWon = false;
   }
 
   function handleRoll() {
