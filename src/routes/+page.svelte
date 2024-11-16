@@ -9,7 +9,7 @@
   let showContent = $state(false);
   let dice = $state(generateNewDiceArray());
   let rolls = $state(0);
-  let bestScore = $state(0);
+  let bestScore = $state(Infinity);
   let allDiceHeld = $state(false);
   let gameWon = $state(false);
 
@@ -113,7 +113,7 @@
         <p>Rolls: {rolls}</p>
       {/if}
 
-      <p>Best score: {bestScore}</p>
+      <p>Best score: {bestScore === Infinity ? 0 : bestScore}</p>
     </div>
     <div class="mx-auto grid grid-cols-5 grid-rows-2 place-content-center gap-3 lg:gap-4">
       {#each dice as die}
