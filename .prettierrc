@@ -12,6 +12,6 @@
       }
     }
   ],
-  "svelteBracketNewLine": false,
+  "svelteBracketNewLine": true,
   "svelteIndentScriptAndStyle": true
 }
