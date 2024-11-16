@@ -46,7 +46,7 @@
     {/each}
   </div>
   <div class="flex flex-row items-center justify-center gap-6">
-    <Button text="Reset" color="red" onClick={handleReset} ariaLabeltext="reset game" />
-    <Button text="Roll" onClick={handleRoll} ariaLabeltext="roll dice" />
+    <Button text="Reset" color="#EF4444" onClick={handleReset} ariaLabeltext="reset game" />
+    <Button text="Roll" color="#8A2BE2" onClick={handleRoll} ariaLabeltext="roll dice" />
   </div>
 </section>
