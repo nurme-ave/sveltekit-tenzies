@@ -4,8 +4,7 @@
 
 <button
   {onclick}
-  class="flex aspect-square w-14 items-center justify-center rounded-lg border-2 border-purple-200 text-2xl text-black sm:w-20 {isHeld
-    ? 'bg-[#59E391]'
-    : 'bg-white'}">
+  class="flex aspect-square w-14 items-center justify-center rounded-lg border-2 border-purple-200 text-2xl text-black sm:w-20"
+  style="background-color: {isHeld ? '#59E391' : '#FFFFFF'}">
   {value}
 </button>
