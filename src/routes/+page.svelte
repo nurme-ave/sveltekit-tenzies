@@ -2,6 +2,9 @@
   import Die from '$lib/components/Die.svelte';
   import Button from '$lib/components/Button.svelte';
 
+  let allDiceHeld = $state(false);
+  let gameWon = $state(false);
+
   let dice = $state(
     Array(10)
       .fill()
@@ -26,6 +29,14 @@
   function handleDieClick(die) {
     die.isHeld = !die.isHeld;
   }
+
+  $effect(() => {
+    const allDiceHeld = dice.every((die) => die.isHeld);
+    const firstValue = dice[0].value;
+    const allSameValue = dice.every((die) => die.value === firstValue);
+
+    gameWon = allDiceHeld && allSameValue;
+  });
 </script>
 
 <section
@@ -38,7 +49,12 @@
     <p class="text-base sm:text-lg">Click each die to freeze it at its current value between rolls.</p>
   </div>
   <div class="text-xl font-semibold text-[#000]">
-    <p>Rolls: 0</p>
+    {#if gameWon}
+      <p>Congratulations! It took you 5 rolls to win!</p>
+    {:else}
+      <p>Rolls: 0</p>
+    {/if}
+
     <p>Best score: 0</p>
   </div>
   <div class="mx-auto grid grid-cols-5 grid-rows-2 place-content-center gap-3 lg:gap-4">
@@ -47,7 +63,11 @@
     {/each}
   </div>
   <div class="flex flex-row items-center justify-center gap-6">
-    <Button text="Reset" color="#EF4444" onClick={handleReset} ariaLabeltext="reset game" />
-    <Button text="Roll" color="#8A2BE2" onClick={handleRoll} ariaLabeltext="roll dice" />
+    {#if gameWon}
+      <Button text="New Game" color="#8A2BE2" onClick={handleReset} ariaLabeltext="new game" />
+    {:else}
+      <Button text="Reset" color="#EF4444" onClick={handleReset} ariaLabeltext="reset game" />
+      <Button text="Roll" color="#8A2BE2" onClick={handleRoll} ariaLabeltext="roll dice" />
+    {/if}
   </div>
 </section>
