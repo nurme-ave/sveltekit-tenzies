@@ -1,9 +1,11 @@
 <script>
+  // Imports
   import { onMount } from 'svelte';
   import { fly } from 'svelte/transition';
   import Die from '$lib/components/Die.svelte';
   import Button from '$lib/components/Button.svelte';
 
+  // State
   let showContent = $state(false);
   let dice = $state(generateNewDiceArray());
   let rolls = $state(0);
@@ -11,6 +13,7 @@
   let allDiceHeld = $state(false);
   let gameWon = $state(false);
 
+  // Initialize best score and entrance animation
   onMount(() => {
     try {
       bestScore = parseInt(localStorage.getItem('bestScore')) || 0;
@@ -22,6 +25,7 @@
     }, 500);
   });
 
+  // Helper functions
   function generateNewDiceArray() {
     return Array(10)
       .fill()
@@ -35,6 +39,7 @@
     };
   }
 
+  // Game handlers
   function handleReset() {
     dice = generateNewDiceArray();
     rolls = 0;
@@ -55,6 +60,7 @@
     die.isHeld = !die.isHeld;
   }
 
+  // Effects
   $effect(() => {
     const allDiceHeld = dice.every((die) => die.isHeld);
     const firstValue = dice[0].value;
