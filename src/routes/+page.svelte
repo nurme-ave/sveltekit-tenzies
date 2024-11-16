@@ -5,12 +5,13 @@
   let allDiceHeld = $state(false);
   let gameWon = $state(false);
   let rolls = $state(0);
+  let dice = $state(generateNewDiceArray());
 
-  let dice = $state(
-    Array(10)
+  function generateNewDiceArray() {
+    return Array(10)
       .fill()
-      .map(() => generateNewDie())
-  );
+      .map(() => generateNewDie());
+  }
 
   function generateNewDie() {
     return {
@@ -20,9 +21,7 @@
   }
 
   function handleReset() {
-    dice = Array(10)
-      .fill()
-      .map(() => generateNewDie());
+    dice = generateNewDiceArray();
     rolls = 0;
     allDiceHeld = false;
     gameWon = false;
