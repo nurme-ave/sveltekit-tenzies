@@ -12,10 +12,14 @@
   let gameWon = $state(false);
 
   onMount(() => {
-    bestScore = parseInt(localStorage.getItem('bestScore')) || 0;
+    try {
+      bestScore = parseInt(localStorage.getItem('bestScore')) || 0;
+    } catch (error) {
+      console.error('Error accessing localStorage:', error);
+    }
     setTimeout(() => {
       showContent = true;
-    }, 500); // Small delay before unveiling
+    }, 500);
   });
 
   function generateNewDiceArray() {
@@ -36,8 +40,12 @@
     rolls = 0;
     allDiceHeld = false;
     gameWon = false;
+    try {
+      localStorage.setItem('bestScore', bestScore.toString());
+    } catch (error) {
+      console.error('Error saving to localStorage:', error);
+    }
   }
-
   function handleRoll() {
     rolls++;
     dice = dice.map((die) => (die.isHeld ? die : generateNewDie()));
@@ -58,7 +66,11 @@
   $effect(() => {
     if (gameWon && rolls < bestScore) {
       bestScore = rolls;
-      localStorage.setItem('bestScore', rolls.toString());
+      try {
+        localStorage.setItem('bestScore', rolls.toString());
+      } catch (error) {
+        console.error('Error saving to localStorage:', error);
+      }
     }
   });
 </script>
@@ -98,6 +110,6 @@
   </div>
 
   {#if !showContent}
-    <div transition:fly={{ duration: 10000, y: 1000 }} class="absolute inset-0 bg-[#8A2BE2] sm:rounded-lg"></div>
+    <div transition:fly={{ duration: 800, y: 1000 }} class="absolute inset-0 bg-[#8A2BE2] sm:rounded-lg"></div>
   {/if}
 </section>
