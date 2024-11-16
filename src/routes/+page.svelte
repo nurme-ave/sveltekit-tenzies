@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte';
   import Die from '$lib/components/Die.svelte';
   import Button from '$lib/components/Button.svelte';
 
@@ -6,6 +7,11 @@
   let gameWon = $state(false);
   let rolls = $state(0);
   let dice = $state(generateNewDiceArray());
+  let bestScore = $state(Infinity);
+
+  onMount(() => {
+    bestScore = parseInt(localStorage.getItem('bestScore')) || Infinity;
+  });
 
   function generateNewDiceArray() {
     return Array(10)
@@ -43,6 +49,13 @@
 
     gameWon = allDiceHeld && allSameValue;
   });
+
+  $effect(() => {
+    if (gameWon && rolls < bestScore) {
+      bestScore = rolls;
+      localStorage.setItem('bestScore', rolls.toString());
+    }
+  });
 </script>
 
 <section
@@ -61,7 +74,7 @@
       <p>Rolls: {rolls}</p>
     {/if}
 
-    <p>Best score: 0</p>
+    <p>Best score: {Number.isFinite(bestScore) ? bestScore : 0}</p>
   </div>
   <div class="mx-auto grid grid-cols-5 grid-rows-2 place-content-center gap-3 lg:gap-4">
     {#each dice as die}
