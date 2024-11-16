@@ -4,6 +4,7 @@
   import { fly } from 'svelte/transition';
   import Die from '$lib/components/Die.svelte';
   import Button from '$lib/components/Button.svelte';
+  import { generateNewDiceArray, generateNewDie, saveBestScore } from '$lib/utils/game';
 
   // State
   let showContent = $state(false);
@@ -17,13 +18,8 @@
   onMount(() => {
     try {
       const savedScore = localStorage.getItem('bestScore');
-      console.log('Initial load - Saved score in localStorage:', savedScore);
       if (savedScore !== null && savedScore !== '0') {
-        // Only update if there's a valid score
         bestScore = parseInt(savedScore);
-        console.log('Set bestScore to:', bestScore);
-      } else {
-        console.log('No saved score found or score is 0, keeping default:', bestScore);
       }
     } catch (error) {
       console.error('Error accessing localStorage:', error);
@@ -33,37 +29,12 @@
     }, 500);
   });
 
-  // Helper functions
-  function generateNewDiceArray() {
-    return Array(10)
-      .fill()
-      .map(() => generateNewDie());
-  }
-
-  function generateNewDie() {
-    return {
-      value: Math.ceil(Math.random() * 6),
-      isHeld: false
-    };
-  }
-
-  function saveBestScore(score) {
-    console.log('Attempting to save score:', score);
-    try {
-      localStorage.setItem('bestScore', score.toString());
-      console.log('Successfully saved score:', localStorage.getItem('bestScore'));
-    } catch (error) {
-      console.error('Error saving to localStorage:', error);
-    }
-  }
-
   // Game handlers
   function handleReset() {
     dice = generateNewDiceArray();
     rolls = 0;
     allDiceHeld = false;
     gameWon = false;
-    console.log('Resetting game. Current best score:', bestScore);
     saveBestScore(bestScore);
   }
 
@@ -81,16 +52,12 @@
     const allDiceHeld = dice.every((die) => die.isHeld);
     const firstValue = dice[0].value;
     const allSameValue = dice.every((die) => die.value === firstValue);
-
     gameWon = allDiceHeld && allSameValue;
   });
 
   $effect(() => {
     if (gameWon) {
-      console.log('Game won! Current rolls:', rolls, 'Best score:', bestScore);
-      // If bestScore is Infinity or rolls is less than current best
       if (bestScore === Infinity || rolls < bestScore) {
-        console.log('New best score!');
         bestScore = rolls;
         saveBestScore(rolls);
       }
