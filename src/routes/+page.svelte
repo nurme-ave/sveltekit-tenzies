@@ -4,6 +4,7 @@
 
   let allDiceHeld = $state(false);
   let gameWon = $state(false);
+  let rolls = $state(0);
 
   let dice = $state(
     Array(10)
@@ -23,6 +24,7 @@
   }
 
   function handleRoll() {
+    rolls++;
     dice = dice.map((die) => (die.isHeld ? die : generateNewDie()));
   }
 
@@ -50,9 +52,9 @@
   </div>
   <div class="text-xl font-semibold text-[#000]">
     {#if gameWon}
-      <p>Congratulations! It took you 5 rolls to win!</p>
+      <p>Congratulations! It took you {rolls} rolls to win!</p>
     {:else}
-      <p>Rolls: 0</p>
+      <p>Rolls: {rolls}</p>
     {/if}
 
     <p>Best score: 0</p>
