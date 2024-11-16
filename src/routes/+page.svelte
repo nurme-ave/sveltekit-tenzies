@@ -7,10 +7,14 @@
   let gameWon = $state(false);
   let rolls = $state(0);
   let dice = $state(generateNewDiceArray());
-  let bestScore = $state(Infinity);
+  let bestScore = $state(0);
 
   onMount(() => {
-    bestScore = parseInt(localStorage.getItem('bestScore')) || Infinity;
+    dice = generateNewDiceArray();
+  });
+
+  onMount(() => {
+    bestScore = parseInt(localStorage.getItem('bestScore')) || 0;
   });
 
   function generateNewDiceArray() {
@@ -74,7 +78,7 @@
       <p>Rolls: {rolls}</p>
     {/if}
 
-    <p>Best score: {Number.isFinite(bestScore) ? bestScore : 0}</p>
+    <p>Best score: {bestScore}</p>
   </div>
   <div class="mx-auto grid grid-cols-5 grid-rows-2 place-content-center gap-3 lg:gap-4">
     {#each dice as die}
