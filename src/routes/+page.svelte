@@ -20,7 +20,7 @@
   }
 
   function handleRoll() {
-    console.log('Roll clicked');
+    dice = dice.map((die) => (die.isHeld ? die : generateNewDie()));
   }
 
   function handleDieClick(die) {
