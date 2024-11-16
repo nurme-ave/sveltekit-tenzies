@@ -17,10 +17,12 @@
   onMount(() => {
     try {
       const savedScore = localStorage.getItem('bestScore');
-      console.log('Loaded score:', savedScore);
+      console.log('Initial load - Saved score in localStorage:', savedScore);
       if (savedScore !== null) {
-        // Only update if there is a saved score
         bestScore = parseInt(savedScore);
+        console.log('Set bestScore to:', bestScore);
+      } else {
+        console.log('No saved score found, keeping default:', bestScore);
       }
     } catch (error) {
       console.error('Error accessing localStorage:', error);
@@ -45,9 +47,10 @@
   }
 
   function saveBestScore(score) {
+    console.log('Attempting to save score:', score);
     try {
       localStorage.setItem('bestScore', score.toString());
-      console.log('Saved score:', score);
+      console.log('Successfully saved score:', localStorage.getItem('bestScore'));
     } catch (error) {
       console.error('Error saving to localStorage:', error);
     }
@@ -59,7 +62,8 @@
     rolls = 0;
     allDiceHeld = false;
     gameWon = false;
-    saveBestScore(bestScore); // Save current best score on reset
+    console.log('Resetting game. Current best score:', bestScore);
+    saveBestScore(bestScore);
   }
 
   function handleRoll() {
@@ -82,7 +86,9 @@
 
   $effect(() => {
     if (gameWon) {
+      console.log('Game won! Current rolls:', rolls, 'Best score:', bestScore);
       if (rolls < bestScore) {
+        console.log('New best score!');
         bestScore = rolls;
         saveBestScore(rolls);
       }
