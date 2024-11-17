@@ -8,6 +8,10 @@ export default {
     extend: {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif']
+      },
+      screens: {
+        'xsm': '400px',
+        '3xl': '1920px'
       }
     }
   },
