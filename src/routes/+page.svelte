@@ -63,8 +63,7 @@
 </script>
 
 <section
-  class="relative mx-0 flex flex-col gap-8 overflow-y-auto border-y border-gray-300 bg-[#F5F5F5] px-4 py-8 text-center
-  sm:mx-auto sm:w-full sm:max-w-[768px] sm:rounded-lg sm:border sm:px-16 sm:py-12 lg:px-20 lg:py-14"
+  class="relative flex flex-col gap-8 bg-[#F5F5F5] px-4 py-8 text-center sm:max-w-[768px] rounded-lg sm:px-16 sm:py-12 lg:px-20 lg:py-14"
 >
   <div class="space-y-0.5">
     <h1 class="mb-4 text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:text-4xl">Tenzies</h1>
