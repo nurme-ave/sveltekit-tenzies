@@ -91,12 +91,8 @@
     {/each}
   </div>
   <div class="flex flex-row items-center justify-center gap-3 sm:gap-6">
-    {#if gameWon}
-      <Button text="New Game" color="#8A2BE2" onClick={handleReset} ariaLabeltext="new game" />
-    {:else}
-      <Button text="Reset" color="#EF4444" onClick={handleReset} ariaLabeltext="reset game" />
-      <Button text="Roll" color="#8A2BE2" onClick={handleRoll} ariaLabeltext="roll dice" />
-    {/if}
+    <Button text="Reset" color="#EF4444" onClick={handleReset} ariaLabeltext="reset game" />
+    <Button text="Roll" color="#8A2BE2" onClick={handleRoll} ariaLabeltext="roll dice" />
   </div>
 
   {#if gameWon}
