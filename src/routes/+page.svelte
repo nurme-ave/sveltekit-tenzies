@@ -86,19 +86,19 @@
 </svelte:head>
 
 <section
-  class="relative flex flex-col gap-8 rounded-lg bg-[#F5F5F5] px-4 py-8 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:py-14"
+  class="relative flex flex-col gap-8 rounded-lg bg-[#F5F5F5] px-4 py-8 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:py-14 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-28 3xl:py-24"
 >
   <div class="space-y-0.5">
-    <div class="mb-4 flex items-center justify-between">
+    <div class="mb-4 flex items-center justify-between 3xl:mb-6">
       <!-- Spacer with same width as button -->
       <div class="w-10"></div>
-      <h1 class="text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:text-4xl">Tenzies</h1>
+      <h1 class="text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:text-4xl 3xl:text-5xl">Tenzies</h1>
       <MuteToggle />
     </div>
-    <p class="text-base sm:text-lg">Roll until all dice are the same.</p>
-    <p class="text-base sm:text-lg">Click each die to freeze it at its current value between rolls.</p>
+    <p class="text-base sm:text-lg 3xl:text-2xl">Roll until all dice are the same.</p>
+    <p class="text-base sm:text-lg 3xl:text-2xl">Click each die to freeze it at its current value between rolls.</p>
   </div>
-  <div class="text-xl font-semibold text-[#000]">
+  <div class="text-xl font-semibold text-[#000] 3xl:text-2xl">
     <p>Rolls: {rolls}</p>
     <p>Best score: {bestScore === Infinity ? 0 : bestScore}</p>
   </div>
@@ -119,11 +119,13 @@
     -translate-y-1/2 transform place-content-center rounded-lg bg-purple-200 px-8 py-6
     text-center text-black shadow-lg sm:h-[85%] sm:w-[85%] sm:px-10 sm:py-8"
     >
-      <i class="fa-solid fa-trophy fa-4x mb-4 text-[#ffaa33] sm:mb-6"></i>
-      <h2 class="mb-2 text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:mb-4 sm:text-4xl">Winner!</h2>
-      <div class="text-xl sm:text-2xl">
-        <p>Congratulations!</p>
-        <p class="mb-4 sm:mb-6">
+      <i class="fa-solid fa-trophy fa-4x mb-4 3xl:mb-8 text-[#ffaa33] sm:mb-6"></i>
+      <h2 class="mb-2 text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:mb-4 sm:text-4xl 3xl:text-5xl">
+        Winner!
+      </h2>
+      <div class="text-xl sm:text-2xl 3xl:text-3xl">
+        <p class="mb-2">Congratulations!</p>
+        <p class="mb-4 sm:mb-6 3xl:mb-8">
           It took you {rolls}
           {rolls === 1 ? 'roll' : 'rolls'} to win!
         </p>

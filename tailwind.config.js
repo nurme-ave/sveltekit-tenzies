@@ -10,7 +10,6 @@ export default {
         poppins: ['Poppins', 'sans-serif']
       },
       screens: {
-        'xsm': '500px',
         '3xl': '1920px'
       }
     }
