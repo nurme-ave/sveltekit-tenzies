@@ -8,6 +8,9 @@ Key concepts:
  - The audio graph: Oscillator → GainNode → Speakers (destination)
 */
 
+import audioStore from '../stores/audioStore';
+import { get } from 'svelte/store';
+
 // AudioContext is a singleton (only one instance) that handles all audio operations
 // We keep it as a global variable to reuse the same context for all sounds
 let audioContext;
@@ -24,6 +27,9 @@ export function initAudioContext() {
 
 // Generate a short click sound for dice interaction
 export const generateClickSound = async () => {
+  // Check if sound is muted
+  if (get(audioStore).isMuted) return;
+
   const context = initAudioContext();
 
   // Oscillator generates the actual sound wave
@@ -51,6 +57,9 @@ export const generateClickSound = async () => {
 
 // Play a victory melody when the game is won
 export const playWinSound = async () => {
+  // Check if sound is muted
+  if (get(audioStore).isMuted) return;
+
   const context = initAudioContext();
   const oscillator = context.createOscillator();
   const gainNode = context.createGain();

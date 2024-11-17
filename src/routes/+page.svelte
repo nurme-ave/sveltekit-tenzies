@@ -7,6 +7,7 @@
   import Button from '$lib/components/Button.svelte';
   import { generateNewDiceArray, generateNewDie, saveBestScore } from '$lib/utils/game';
   import { playWinSound } from '$lib/utils/sounds';
+  import MuteToggle from '$lib/components/MuteToggle.svelte';
 
   // State
   let dice = $state(generateNewDiceArray());
@@ -79,7 +80,12 @@
   class="relative flex flex-col gap-8 rounded-lg bg-[#F5F5F5] px-4 py-8 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:py-14"
 >
   <div class="space-y-0.5">
-    <h1 class="mb-4 text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:text-4xl">Tenzies</h1>
+    <div class="mb-4 flex items-center justify-between">
+      <div class="w-10"></div>
+      <!-- Spacer with same width as button -->
+      <h1 class="text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:text-4xl">Tenzies</h1>
+      <MuteToggle />
+    </div>
     <p class="text-base sm:text-lg">Roll until all dice are the same.</p>
     <p class="text-base sm:text-lg">Click each die to freeze it at its current value between rolls.</p>
   </div>
