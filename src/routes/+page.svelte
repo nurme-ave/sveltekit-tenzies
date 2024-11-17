@@ -44,6 +44,17 @@
     die.isHeld = !die.isHeld;
   }
 
+  function zoomIn(node, { duration = 400, delay = 0 }) {
+    return {
+      delay,
+      duration,
+      css: (t) => `
+        opacity: ${t};
+        transform: translate(-50%, -50%) scale(${t});
+      `
+    };
+  }
+
   // Effects
   $effect(() => {
     const allDiceHeld = dice.every((die) => die.isHeld);
@@ -90,11 +101,7 @@
 
   {#if gameWon}
     <div
-      transition:scale={{
-        duration: 400,
-        easing: elasticOut,
-        start: 0.3
-      }}
+      transition:zoomIn
       class="absolute left-1/2 top-1/2 grid h-full w-full -translate-x-1/2
     -translate-y-1/2 transform place-content-center rounded-lg bg-purple-200 px-8 py-6
     text-center text-black shadow-lg sm:h-[85%] sm:w-[85%] sm:px-10 sm:py-8"
