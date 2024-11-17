@@ -64,10 +64,9 @@
     gameWon = allDiceHeld && allSameValue;
   });
 
-  // In your effects section
   $effect(() => {
     if (gameWon) {
-      playWinSound(); // Add winning sound
+      playWinSound();
       if (bestScore === Infinity || rolls < bestScore) {
         bestScore = rolls;
         saveBestScore(rolls);
