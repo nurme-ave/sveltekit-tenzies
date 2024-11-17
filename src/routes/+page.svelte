@@ -76,6 +76,15 @@
   });
 </script>
 
+<svelte:head>
+  <title>Tenzies - Roll Your Way to Victory</title>
+  <meta
+    name="description"
+    content="Roll, match, and strategize your way to victory in Tenzies! A thrilling dice game where quick decisions and luck combine. Can you get all dice to match?"
+  />
+  <meta name="keywords" content="tenzies, dice game, browser game, roll dice, strategy game" />
+</svelte:head>
+
 <section
   class="relative flex flex-col gap-8 rounded-lg bg-[#F5F5F5] px-4 py-8 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:py-14"
 >
