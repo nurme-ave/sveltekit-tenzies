@@ -99,10 +99,11 @@
     -translate-y-1/2 transform place-content-center rounded-lg bg-purple-200 px-8 py-6
     text-center text-black shadow-lg sm:h-[85%] sm:w-[85%] sm:px-10 sm:py-8"
     >
-      <h2 class="mb-2 text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:text-4xl lg:text-5xl">Winner!</h2>
-      <div class="text-2xl sm:text-3xl lg:text-4xl">
+      <i class="fa-solid fa-trophy fa-3x mb-4 text-yellow-400 sm:mb-8"></i>
+      <h2 class="mb-2 text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:mb-4 sm:text-4xl">Winner!</h2>
+      <div class="text-2xl sm:text-3xl">
         <p>Congratulations!</p>
-        <p class="mb-4">
+        <p class="mb-4 sm:mb-8">
           It took you {rolls}
           {rolls === 1 ? 'roll' : 'rolls'} to win!
         </p>
