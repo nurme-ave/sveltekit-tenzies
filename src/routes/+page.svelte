@@ -99,8 +99,8 @@
     -translate-y-1/2 transform place-content-center rounded-lg bg-purple-200 px-8 py-6
     text-center text-black shadow-lg sm:h-[85%] sm:w-[85%] sm:px-10 sm:py-8"
     >
-      <h2 class="mb-2 text-2xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:text-3xl lg:text-4xl">Winner!</h2>
-      <div class="text-lg sm:text-xl lg:text-2xl">
+      <h2 class="mb-2 text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:text-4xl lg:text-5xl">Winner!</h2>
+      <div class="text-2xl sm:text-3xl lg:text-4xl">
         <p>Congratulations!</p>
         <p class="mb-4">
           It took you {rolls}
