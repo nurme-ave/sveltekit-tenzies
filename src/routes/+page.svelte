@@ -63,7 +63,7 @@
 </script>
 
 <section
-  class="relative flex flex-col gap-8 bg-[#F5F5F5] px-4 py-8 text-center sm:max-w-[768px] rounded-lg sm:px-16 sm:py-12 lg:px-20 lg:py-14"
+  class="relative flex flex-col gap-8 rounded-lg bg-[#F5F5F5] px-4 py-8 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:py-14"
 >
   <div class="space-y-0.5">
     <h1 class="mb-4 text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:text-4xl">Tenzies</h1>
@@ -71,12 +71,7 @@
     <p class="text-base sm:text-lg">Click each die to freeze it at its current value between rolls.</p>
   </div>
   <div class="text-xl font-semibold text-[#000]">
-    {#if gameWon}
-      <p>Congratulations! It took you {rolls} rolls to win!</p>
-    {:else}
-      <p>Rolls: {rolls}</p>
-    {/if}
-
+    <p>Rolls: {rolls}</p>
     <p>Best score: {bestScore === Infinity ? 0 : bestScore}</p>
   </div>
   <div class="mx-auto grid grid-cols-5 grid-rows-2 place-content-center gap-3 lg:gap-4">
@@ -100,11 +95,19 @@
         easing: elasticOut,
         start: 0.3
       }}
-      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform
-      rounded-lg bg-purple-600 px-4 py-2 text-lg font-bold text-white shadow-lg
-      sm:px-8 sm:py-4 sm:text-xl md:text-2xl"
+      class="absolute left-1/2 top-1/2 grid h-full w-full -translate-x-1/2
+    -translate-y-1/2 transform place-content-center rounded-lg bg-purple-200 px-8 py-6
+    text-center text-black shadow-lg sm:h-[85%] sm:w-[85%] sm:px-10 sm:py-8"
     >
-      Winner!
+      <h2 class="mb-2 text-2xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:text-3xl lg:text-4xl">Winner!</h2>
+      <div class="text-lg sm:text-xl lg:text-2xl">
+        <p>Congratulations!</p>
+        <p class="mb-4">
+          It took you {rolls}
+          {rolls === 1 ? 'roll' : 'rolls'} to win!
+        </p>
+        <Button text="New Game" color="#8A2BE2" onClick={handleReset} ariaLabeltext="new game" />
+      </div>
     </div>
   {/if}
 </section>
