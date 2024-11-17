@@ -1,8 +1,7 @@
 <script>
   // Imports
   import { onMount } from 'svelte';
-  import { fly, scale } from 'svelte/transition';
-  import { elasticOut } from 'svelte/easing';
+  import { scale } from 'svelte/transition';
   import Die from '$lib/components/Die.svelte';
   import Button from '$lib/components/Button.svelte';
   import { generateNewDiceArray, generateNewDie, saveBestScore } from '$lib/utils/game';
@@ -46,6 +45,7 @@
     die.isHeld = !die.isHeld;
   }
 
+  // Winner message zoom in animation
   function zoomIn(node, { duration = 400, delay = 0 }) {
     return {
       delay,
@@ -81,8 +81,8 @@
 >
   <div class="space-y-0.5">
     <div class="mb-4 flex items-center justify-between">
-      <div class="w-10"></div>
       <!-- Spacer with same width as button -->
+      <div class="w-10"></div>
       <h1 class="text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:text-4xl">Tenzies</h1>
       <MuteToggle />
     </div>

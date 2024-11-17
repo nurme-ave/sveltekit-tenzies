@@ -11,8 +11,7 @@
 <button
   onclick={handleClick}
   class="flex aspect-square w-16 items-center justify-center rounded-lg border-2 border-purple-200
-         text-2xl text-black transition-all duration-200 active:scale-95
-         sm:w-20
+         text-2xl text-black transition-all duration-200 active:scale-95 sm:w-20
          {isHeld ? '' : 'sm:hover:scale-105'}"
   style="background-color: {isHeld ? '#E9D5FF' : '#FFF'}"
 >
