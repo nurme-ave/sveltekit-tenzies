@@ -108,7 +108,7 @@
     {/each}
   </div>
   <div class="flex flex-row items-center justify-center gap-3 sm:gap-6">
-    <Button text="Reset" color="#EF4444" onClick={handleReset} ariaLabeltext="reset game" />
+    <Button text="Reset" color="#EF4444" onClick={handleReset} ariaLabeltext="reset game" needsConfirmation={true} />
     <Button text="Roll" color="#8A2BE2" onClick={handleRoll} ariaLabeltext="roll dice" />
   </div>
 
@@ -119,7 +119,7 @@
     -translate-y-1/2 transform place-content-center rounded-lg bg-purple-200 px-8 py-6
     text-center text-black shadow-lg sm:h-[85%] sm:w-[85%] sm:px-10 sm:py-8"
     >
-      <i class="fa-solid fa-trophy fa-4x mb-4 3xl:mb-8 text-[#ffaa33] sm:mb-6"></i>
+      <i class="fa-solid fa-trophy fa-4x mb-4 text-[#ffaa33] sm:mb-6 3xl:mb-8"></i>
       <h2 class="mb-2 text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:mb-4 sm:text-4xl 3xl:text-5xl">
         Winner!
       </h2>
