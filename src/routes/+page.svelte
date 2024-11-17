@@ -6,6 +6,7 @@
   import Die from '$lib/components/Die.svelte';
   import Button from '$lib/components/Button.svelte';
   import { generateNewDiceArray, generateNewDie, saveBestScore } from '$lib/utils/game';
+  import { playWinSound } from '$lib/utils/sounds';
 
   // State
   let dice = $state(generateNewDiceArray());
@@ -63,8 +64,10 @@
     gameWon = allDiceHeld && allSameValue;
   });
 
+  // In your effects section
   $effect(() => {
     if (gameWon) {
+      playWinSound(); // Add winning sound
       if (bestScore === Infinity || rolls < bestScore) {
         bestScore = rolls;
         saveBestScore(rolls);
