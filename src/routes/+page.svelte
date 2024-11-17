@@ -63,7 +63,7 @@
 </script>
 
 <section
-  class="relative mx-4 flex w-screen flex-col gap-8 border-y border-gray-300 bg-[#F5F5F5] px-4 py-8 text-center
+  class="relative mx-0 flex flex-col gap-8 overflow-y-auto border-y border-gray-300 bg-[#F5F5F5] px-4 py-8 text-center
   sm:mx-auto sm:w-full sm:max-w-[768px] sm:rounded-lg sm:border sm:px-16 sm:py-12 lg:px-20 lg:py-14"
 >
   <div class="space-y-0.5">
