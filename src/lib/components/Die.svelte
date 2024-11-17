@@ -1,5 +1,6 @@
 <script>
   import { generateClickSound } from '$lib/utils/sounds';
+
   let { value, isHeld, onclick } = $props();
 
   function handleClick() {

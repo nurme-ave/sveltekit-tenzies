@@ -15,7 +15,7 @@
   let allDiceHeld = $state(false);
   let gameWon = $state(false);
 
-  // Initialize best score, entrance animation and window height
+  // Initialize best score and entrance animation
   onMount(() => {
     try {
       const savedScore = localStorage.getItem('bestScore');
@@ -45,7 +45,7 @@
     die.isHeld = !die.isHeld;
   }
 
-  // Winner message zoom in animation
+  // Winner message zoom-in animation
   function zoomIn(node, { duration = 400, delay = 0 }) {
     return {
       delay,
