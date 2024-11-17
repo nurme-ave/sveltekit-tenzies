@@ -126,7 +126,7 @@
       <div class="text-xl sm:text-2xl 3xl:text-3xl">
         <p class="mb-2">Congratulations!</p>
         <p class="mb-4 sm:mb-6 3xl:mb-8">
-          It took you {rolls}
+          It took you <span class="font-semibold">{rolls}</span>
           {rolls === 1 ? 'roll' : 'rolls'} to win!
         </p>
         <Button text="New Game" color="#8A2BE2" onClick={handleReset} ariaLabeltext="new game" />
