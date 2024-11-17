@@ -99,7 +99,7 @@
     -translate-y-1/2 transform place-content-center rounded-lg bg-purple-200 px-8 py-6
     text-center text-black shadow-lg sm:h-[85%] sm:w-[85%] sm:px-10 sm:py-8"
     >
-      <i class="fa-solid fa-trophy fa-4x mb-4 text-[#FFD43B] sm:mb-6"></i>
+      <i class="fa-solid fa-trophy fa-4x mb-4 text-[#ffaa33] sm:mb-6"></i>
       <h2 class="mb-2 text-3xl font-bold uppercase tracking-wide text-[#8A2BE2] sm:mb-4 sm:text-4xl">Winner!</h2>
       <div class="text-xl sm:text-2xl">
         <p>Congratulations!</p>
