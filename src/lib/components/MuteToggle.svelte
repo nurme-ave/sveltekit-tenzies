@@ -1,17 +1,6 @@
 <script>
-  import { onMount } from 'svelte';
   import audioStore, { toggleMute } from '$lib/stores/audioStore';
-
-  let isMuted = $state(false);
-
-  // Subscribe to store changes
-  onMount(() => {
-    const unsubscribe = audioStore.subscribe((state) => {
-      isMuted = state.isMuted;
-    });
-
-    return unsubscribe;
-  });
+  let isMuted = $derived($audioStore.isMuted);
 </script>
 
 <div class="flex items-center gap-2 md:gap-3">
