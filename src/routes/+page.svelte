@@ -125,7 +125,7 @@
       </h2>
       <div class="text-xl sm:text-2xl 3xl:text-3xl">
         <p class="mb-2">Congratulations!</p>
-        <p class="mb-4 sm:mb-6 3xl:mb-8">
+        <p class="mb-8 sm:mb-12 3xl:mb-16">
           It took you <span class="font-semibold">{rolls}</span>
           {rolls === 1 ? 'roll' : 'rolls'} to win!
         </p>
