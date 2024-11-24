@@ -86,7 +86,7 @@
 </svelte:head>
 
 <section
-  class="relative flex flex-col gap-8 rounded-lg bg-[#F5F5F5] px-4 py-8 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:py-14 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-28 3xl:py-24"
+  class="relative flex flex-col gap-8 rounded-lg bg-[#F5F5F5] px-4 py-10 text-center sm:max-w-[768px] sm:px-16 sm:py-12 lg:px-20 lg:py-14 3xl:max-w-[1024px] 3xl:gap-10 3xl:px-28 3xl:py-24"
 >
   <div class="space-y-0.5">
     <div class="mb-4 flex items-center justify-between 3xl:mb-6">
@@ -107,7 +107,7 @@
       <Die value={die.value} isHeld={die.isHeld} onclick={() => handleDieClick(die)} />
     {/each}
   </div>
-  <div class="flex flex-row items-center justify-center gap-3 sm:gap-6">
+  <div class="flex flex-row items-center justify-center gap-5 sm:gap-6">
     <Button text="Reset" color="#EF4444" onClick={handleReset} ariaLabeltext="reset game" needsConfirmation={true} />
     <Button text="Roll" color="#8A2BE2" onClick={handleRoll} ariaLabeltext="roll dice" />
   </div>

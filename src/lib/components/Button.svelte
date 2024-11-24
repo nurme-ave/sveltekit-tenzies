@@ -25,8 +25,8 @@
 <div>
   <button
     onclick={handleClick}
-    class="w-[7.5em] rounded-lg p-3 text-xl font-semibold uppercase tracking-wide text-white
-           transition-colors duration-200 hover:brightness-90 active:scale-95 sm:px-4 sm:py-3
+    class="w-[7.5em] rounded-lg p-4 text-xl font-semibold uppercase tracking-wide text-white
+           transition-colors duration-200 hover:brightness-90 active:scale-95 
            sm:text-2xl 3xl:w-[8em] 3xl:px-8 3xl:py-6 3xl:text-3xl"
     style="background-color: {color};"
     aria-label={ariaLabeltext}
